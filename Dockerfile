@@ -1,5 +1,8 @@
 FROM ubuntu:18.04
 
+ENV http_proxy http://proxy-dmz.intel.com:911
+ENV https_proxy http://proxy-dmz.intel.com:912
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
@@ -24,7 +27,7 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.d
     apt-get -y install git-lfs
 
 RUN pip3 install meson==0.59.2
-RUN pip3 install mako==1.1.0
+RUN pip3 install mako>=0.8.1
 
 #creating user celadonuser
 ENV CUSER celadon
