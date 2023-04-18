@@ -29,6 +29,8 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.d
 RUN pip3 install meson==0.59.2
 RUN pip3 install mako>=0.8.1
 
+RUN cd /usr/local/ && wget https://github.com/KhronosGroup/glslang/releases/download/SDK-candidate-26-Jul-2020/glslang-master-linux-Release.zip && unzip glslang-master-linux-Release.zip bin/glslangValidator
+
 #creating user celadonuser
 ENV CUSER celadon
 ENV CUSERHOME /home/$CUSER
